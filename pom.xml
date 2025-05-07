@@ -10,9 +10,9 @@
     </parent>
 
     <groupId>com.tema_kuznetsov</groupId>
-    <artifactId>task-manager</artifactId>
+    <artifactId>subApp</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>task-manager</name>
+    <name>subApp</name>
     <description>Project for beloved company :3</description>
     <url/>
     <licenses>
