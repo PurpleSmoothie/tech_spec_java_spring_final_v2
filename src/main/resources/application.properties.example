@@ -1,0 +1,5 @@
+spring.application.name=demo
+spring.datasource.url=jdbc:postgresql://localhost:5432/ur-db-name
+spring.datasource.username=your-username
+spring.datasource.password=your-password
+spring.datasource.driver-class-name=org.postgresql.Driver
