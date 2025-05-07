@@ -75,7 +75,7 @@ public class SubscriptionIntegrationTest {
     }
 
     @Test
-    @Order(3)
+    @Order(4)
     void getAllUserSubscriptions() {
         ResponseEntity<SubscriptionResponseDto[]> response = rest.getForEntity(
                 baseUrl("/users/" + userId1 + "/subscriptions"), SubscriptionResponseDto[].class);
@@ -84,7 +84,7 @@ public class SubscriptionIntegrationTest {
     }
 
     @Test
-    @Order(4)
+    @Order(5)
     void updateSubscription() {
         SubscriptionDto updateDto = new SubscriptionDto("Netflix Premium");
         HttpHeaders headers = new HttpHeaders();
@@ -102,7 +102,7 @@ public class SubscriptionIntegrationTest {
     }
 
     @Test
-    @Order(5)
+    @Order(6)
     void getSubscriptionById() {
         ResponseEntity<SubscriptionResponseDto> response = rest.getForEntity(
                 baseUrl("/users/" + userId1 + "/subscriptions/" + netflixId), SubscriptionResponseDto.class);
@@ -111,7 +111,7 @@ public class SubscriptionIntegrationTest {
     }
 
     @Test
-    @Order(6)
+    @Order(3)
     void getTopSubscriptions() {
         ResponseEntity<TopSubscriptionDto[]> response = rest.getForEntity(
                 baseUrl("/users/" + userId1 + "/subscriptions/top?limit=3"), TopSubscriptionDto[].class);
@@ -122,7 +122,7 @@ public class SubscriptionIntegrationTest {
         List<String> names = top.stream().map(TopSubscriptionDto::name).toList();
         List<Long> counts = top.stream().map(TopSubscriptionDto::count).toList();
 
-        assertThat(names).contains("Netflix Premium", "Spotify");
+        assertThat(names).contains("Netflix", "Spotify", "Netflix");
 
         assertThat(counts.stream().anyMatch(c -> c >= 2)).isTrue();
     }
